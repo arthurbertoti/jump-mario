@@ -2,30 +2,78 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/*PRE-GAME*/
+/*START MENU*/
+.pre-game{
+    display:none;
+}
+
+/*Mario inicial do jogo*/
+.start-mario{
+    width: 300px;
+}
 
 /*menu inicial do jogo*/
 .start-menu{
-    background-color: #ff0000;
+    background-color: #00ff0d;
     border: 1px solid black;
     text-align: center;
-    display: none; /* Colcocar e retirar esta função no início do jogo para que o user coloque as informações dele*/ 
+    justify-content: center;
+    width: 300px;
+    vertical-align: top;
+    /* TESTAR ESSAS CONFIGURAÇÕES
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;*/
+    display: inline-block; /* Colocar e retirar esta configuração para ajeitar este menu noemal = inline block*/ 
+}
+h1{
+    margin: 40px auto 50px;
 }
 
-/*local para por o nome*/
+/*local para pôr o nome*/
 .type-input{
+    width: 250px;
+    height: 30px;
     border-radius: 10px;
+    padding: 10px;
+    border: white;
+    margin: 20px auto 10px;
+}
+/*efeito de passar o mouse em cima*/
+.type-input:hover{
+    border: 2px orange solid;
+}
+/*efeito de quando está a digitar*/    
+.type-input:focus{
+    outline: 0;
+    border: 2px orange solid;
 }
 
-/*Botão de iniciar o jogo*/
-.enter-input{
-    border-radius: 10px;
+/*Botão de iniciar e reset do jogo*/
+.enter-input, .reset-input{
+    height: 25px;
+    border-radius: 7px;
+    padding: 5px 45px;
+    background-color: black;
+    border: white;
+    color: white;
+    margin: 10px;
+}
+/*efeito de passar o mouse em cima*/
+.enter-input:hover, .reset-input:hover{
+    background-color: white;
+    border: white;
+    color: black;
 }
 
 
-/*ON GAME*/
+/*IN GAMING*/
+
+
 
 /*quadro do jogo*/
 .game-board{
@@ -36,8 +84,7 @@
     background: linear-gradient(#87CEEB, #E0f6FF);
 }
 
-/*grama do jogo (INCOMPLETA)*/
-
+/*grama do jogo*/
 .grass{
     position: absolute;
     background-color: rgb(0, 211, 0);
@@ -46,12 +93,12 @@
     border-top: 7px solid rgb(35, 160, 40);
     bottom: 0;
     color: rgb(71, 218, 30);
-    
 }
 
 
 /*botão de reset do jogo*/
 .reset-input{
+
 }
 
 /*quadro que contém pontuação, informações do jogador, foto do Mario, e VIDAS??*/
@@ -59,13 +106,14 @@
     background-color: rgba(0, 0, 0, 0.70);
     height: 130px;
     width: 650px;
+    border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
 }
 
+/*pontos do Mario*/
 .score{
     display: inline-block;
     vertical-align: top;
@@ -91,10 +139,9 @@
 }
 
 /* vidas do Mario USAREI??*/
- .lives{
+.lives{
     display: inline-block;
     vertical-align: top;
-    right: 20px;
 }
 
 /*tubo verde em que o Mario pula*/
@@ -129,7 +176,13 @@
     animation: jump 500ms ease-out;
 }
 
-
+/*div do gif final (win or lose)*/
+.win-lose{
+    position: relative;
+    margin: auto;
+    width: 60%;
+    height: 60%;
+}
 
 /*----ANIMAÇÕES----*/
 
