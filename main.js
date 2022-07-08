@@ -86,8 +86,8 @@ const loop = setInterval(() => {
         //terminar o jogo
         clearInterval(loop)
         
-        //gif 'you-lose.gif'
-        display_image('images/you-lose.gif', width - (width * 0.6), height - (height * 0.6), "You Lose!");
+        //gif 'you-lose.gif' (aqui tem que ser a mesma porcentagem que o código no css em width e height)
+        display_image('images/you-lose.gif', width* 0.4, height * 0.4, "You Lose!");
     }
 
     //condição que aumenta os pontos quando Mario pula com sucesso
@@ -108,8 +108,8 @@ const loop = setInterval(() => {
         //terminar o jogo
         clearInterval(loop);
         
-        //gif 'you-win.gif'
-        display_image('images/you-win.gif', width - (width * 0.6), height - (height * 0.6), "You Win!");
+        //gif 'you-win.gif' (aqui tem que ser a mesma porcentagem que o código no css em width e height)
+        display_image('images/you-win.gif', width* 0.4, height * 0.4, "You Win!");
     }
 }, 10)
 
