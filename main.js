@@ -2,6 +2,10 @@
 const height = window.innerHeight;
 const width = window.innerWidth;
 
+//variáveis do menu e do jogo em si
+const startMenu = document.querySelector('.pre-game')
+const game = document.querySelector('.on-game')
+
 //variável da img Mario
 const mario = document.querySelector('.mario');
 
@@ -28,6 +32,8 @@ var points = 0;
 function startGame(){
     var newPlayer = document.querySelector('.type-input').value;
     name.innerText = `${newPlayer}`
+    startMenu.style.display = 'none'
+    game.style.display = 'block'
 }
 
 //função de regarregar a página (reset)
@@ -81,7 +87,7 @@ const loop = setInterval(() => {
         clearInterval(loop)
         
         //gif 'you-lose.gif'
-        display_image('images/you-lose.gif', width - (width * 0.4), height - (height * 0.4), "You Lose!");
+        display_image('images/you-lose.gif', width - (width * 0.6), height - (height * 0.6), "You Lose!");
     }
 
     //condição que aumenta os pontos quando Mario pula com sucesso
@@ -103,7 +109,7 @@ const loop = setInterval(() => {
         clearInterval(loop);
         
         //gif 'you-win.gif'
-        display_image('images/you-win.gif', width - (width * 0.4), height - (height * 0.4), "You Win!");
+        display_image('images/you-win.gif', width - (width * 0.6), height - (height * 0.6), "You Win!");
     }
 }, 10)
 
