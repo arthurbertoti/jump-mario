@@ -28,6 +28,15 @@
 
 
 /*----START MENU----*/
+/*div principal do menu inicial*/
+.pre-game{
+    width: 100%;
+    height: calc(80vh - 100px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
 /*Mario inicial do jogo*/
 .start-mario{
@@ -37,8 +46,6 @@
 
 /*menu inicial do jogo*/
 .start-menu{
-    background-color: #00ff0d;
-    border: 1px solid black;
     width: 300px;
     height: 300px;
     text-align: center;
@@ -99,6 +106,9 @@ h1{
     margin-right: auto;
     color: white;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+
 }
 
 /*pontos do Mario*/
@@ -106,6 +116,7 @@ h1{
     display: inline-block;
     vertical-align: top;
 }
+
 /*Quadro que contém o nome do jogador e a foto do Mario (está dentro do score-board)*/
 .name-board{
     background-color: rgb(78, 78, 78);
