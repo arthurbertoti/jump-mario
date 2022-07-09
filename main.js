@@ -30,10 +30,13 @@ var points = 0;
 
 //função de começar o jogo (POR ENQANTO APENAS TEM O NEGÓCIO DE MUDAR O NOME)
 function startGame(){
-    var newPlayer = document.querySelector('.type-input').value;
-    name.innerText = `${newPlayer}`
-    startMenu.style.display = 'none'
-    game.style.display = 'block'
+    setTimeout(() => {
+        var newPlayer = document.querySelector('.type-input').value;
+        name.innerText = `${newPlayer}`
+        startMenu.style.display = 'none'
+        game.style.display = 'block'
+    }, 1000);
+    
 }
 
 //função de regarregar a página (reset)
@@ -75,7 +78,7 @@ const loop = setInterval(() => {
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
 
-        //Parar animação do Mario onde ele estiver e trocar imagem dele
+        //parar animação do Mario onde ele estiver e trocar imagem dele
         mario.style.animation = 'none'
         mario.style.bottom = `${marioPosition}px`;
         mario.src = 'images/game-over.png';
