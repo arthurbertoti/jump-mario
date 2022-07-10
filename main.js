@@ -25,10 +25,12 @@ const winLose = document.querySelector('.win-lose')
 //pontos do Mario
 var points = 0;
 
+//variável para que sejam contados de 10 em 10 pontos por volta
+var newTurn = 0;
 
 //FUNÇÕES
 
-//função de começar o jogo (POR ENQANTO APENAS TEM O NEGÓCIO DE MUDAR O NOME)
+//função de começar o jogo
 function startGame(){
     setTimeout(() => {
         var newPlayer = document.querySelector('.type-input').value;
@@ -67,7 +69,6 @@ function display_image(src, width, height, alt) {
 const loop = setInterval(() => {
     //acessa o deslocamento esquerdo da img pipe
     const pipePosition =  pipe.offsetLeft;
-
     //acessa a posição vertical do Mario (que é dada em String), retira o px do nome e transforma a String em Number (com o + na frente)
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
@@ -93,18 +94,22 @@ const loop = setInterval(() => {
         display_image('images/you-lose.gif', width* 0.4, height * 0.4, "You Lose!");
     }
 
-    //condição que aumenta os pontos quando Mario pula com sucesso
-    if (pipePosition <= 120 && pipePosition > 0 && marioPosition > 180) {
-        
+    //condição que aumenta os pontos quando Mario pula com sucesso  ------------------(INCOMPLETA)------------------
+    if (pipePosition < 0 && newTurn == 0 ) {
         //soma dos pontos
         points += 10;
-        
-        //mostrar pontos
+        newTurn = 1;
+        //mostrar pontos no score board
         score.innerText = `Pontos: ${points}`
+
+        //condição para que seja contado de 10 em 10 pontos
+    } else if(pipePosition >= 0 && newTurn == 1){
+        newTurn = 0;
     }
 
-    //condição para o Mario ganhar o jogo (100 pontos) ------------------(INCOMPLETA)------------------
+    //condição para o Mario ganhar o jogo (100 pontos)
     if (points >= 100){
+        //Parar animação da pipe
         pipe.style.animation = 'none';
         pipe.style.right  = `0`;
 
@@ -112,7 +117,7 @@ const loop = setInterval(() => {
         clearInterval(loop);
         
         //gif 'you-win.gif' (aqui tem que ser a mesma porcentagem que o código no css em width e height)
-        display_image('images/you-win.gif', width* 0.4, height * 0.4, "You Win!");
+        display_image('images/you-win.gif', width * 0.4, height * 0.4, "You Win!");
     }
 }, 10)
 
