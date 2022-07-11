@@ -26,7 +26,7 @@ const winLose = document.querySelector('.win-lose')
 var points = 0;
 
 //variável para que sejam contados de 10 em 10 pontos por volta
-var newTurn = 0;
+var newTurn = false;
 
 //FUNÇÕES
 
@@ -95,16 +95,16 @@ const loop = setInterval(() => {
     }
 
     //condição que aumenta os pontos quando Mario pula com sucesso  ------------------(INCOMPLETA)------------------
-    if (pipePosition < 0 && newTurn == 0 ) {
+    if (pipePosition < 0 && newTurn == false ) {
         //soma dos pontos
         points += 10;
-        newTurn = 1;
+        newTurn = true;
         //mostrar pontos no score board
         score.innerText = `Pontos: ${points}`
 
         //condição para que seja contado de 10 em 10 pontos
-    } else if(pipePosition >= 0 && newTurn == 1){
-        newTurn = 0;
+    } else if(pipePosition >= 0 && newTurn == true){
+        newTurn = false;
     }
 
     //condição para o Mario ganhar o jogo (100 pontos)
